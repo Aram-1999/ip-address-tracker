@@ -1,0 +1,6 @@
+#info-banner {
+    display: flex;
+    gap: 20px;
+}
+
+#map { height: 180px; }
