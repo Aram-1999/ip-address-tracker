@@ -1,5 +1,5 @@
 body {
-  font-size: 18px;
+  font-size: 12px;
   font-family: "Rubik", sans-serif;
   display: flex;
   flex-direction: column;
@@ -67,7 +67,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: hsl(0, 0%, 59%);
   font-weight: 500;
   margin: 0;
@@ -89,10 +89,13 @@ p {
   box-shadow: 2px 2px 10px hsl(0, 0%, 59%);
   position: absolute;
   text-align: center;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 @media screen and (min-width: 769px) {
+    body {
+        font-size: 18px;
+    }
   #info-banner {
     display: flex;
     gap: 20px;
