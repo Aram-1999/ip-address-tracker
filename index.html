@@ -27,6 +27,13 @@
       crossorigin=""
     ></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
@@ -39,47 +46,38 @@
     </style>
   </head>
   <body>
-    <div>
+    <div class="hero">
       <h1>IP Address Tracker</h1>
-      <form id="input-form">
+      <form id="input-form" novalidate>
         <input
           id="text-input"
           type="text"
           placeholder="Search for any IP address or domain"
-        />
-        <button type="submit" id="submit-btn">></button>
+          required
+        /><button type="submit" id="submit-btn">></button>
+        <span id="input-error"></span>
       </form>
-    </div>
 
-    <div id="info-banner">
-      <div id="ip-address">
-        <h2>IP Address</h2>
-        <p></p>
-      </div>
-      <div id="location">
-        <h2>Location</h2>
-        <div></div>
-      </div>
-      <div id="timezone">
-        <h2>Timezone</h2>
-        <p></p>
-        <p></p>
-      </div>
-      <div id="isp">
-        <h2>ISP</h2>
-        <p></p>
+      <div id="info-banner">
+        <div id="ip-address">
+          <h2>IP Address</h2>
+          <p></p>
+        </div>
+        <div id="location">
+          <h2>Location</h2>
+          <div></div>
+        </div>
+        <div id="timezone">
+          <h2>Timezone</h2>
+          <p></p>
+        </div>
+        <div id="isp">
+          <h2>ISP</h2>
+          <p></p>
+        </div>
       </div>
     </div>
 
     <div id="map"></div>
-
-    <!-- add offset value dynamically using the API -->
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div>
   </body>
 </html>
