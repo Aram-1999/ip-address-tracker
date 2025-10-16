@@ -18,6 +18,22 @@ const inputError = document.getElementById('input-error')
 
 let map;
 
+function mapRendering(data) {
+      map = L.map(mapDiv).setView([data.location.lat, data.location.lng], 13);
+
+    const locationIcon = L.icon({
+      iconUrl: '../images/icon-location.svg'
+    })
+
+    L.marker([data.location.lat, data.location.lng], {icon: locationIcon}).addTo(map);
+
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const data = await fetchOwnIP();
@@ -28,15 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     timezone.textContent = "UTC " + data.location.timezone;
     isp.textContent = data.isp;
 
-    const map = L.map(mapDiv).setView(
-      [data.location.lat, data.location.lng],
-      13
-    );
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      attribution:
-        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(map);
+    mapRendering(data)
   } catch (error) {
     console.error(error);
   }
@@ -91,19 +99,7 @@ inputForm.addEventListener("submit", async (event) => {
     timezone.textContent = "UTC " + data.location.timezone;
     isp.textContent = data.isp;
 
-    map = L.map(mapDiv).setView([data.location.lat, data.location.lng], 13);
-
-    const locationIcon = L.icon({
-      iconUrl: '../images/icon-location.svg'
-    })
-
-    L.marker([data.location.lat, data.location.lng], {icon: locationIcon}).addTo(map);
-
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      attribution:
-        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(map);
+    mapRendering(data)
   } catch (error) {
     console.error(error);
   }
