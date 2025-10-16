@@ -24,7 +24,7 @@ h1 {
 }
 
 .hero {
-  background-image: url("../../images/pattern-bg-desktop.png");
+  background-image: url("../images/pattern-bg-desktop.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
