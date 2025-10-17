@@ -78,6 +78,7 @@ inputForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     missingValueCheck();
     if (!textInput.checkValidity()) {
+      textInput.focus();
       return;
     }
     cleanUp();
